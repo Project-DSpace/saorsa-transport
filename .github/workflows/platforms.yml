@@ -21,12 +21,6 @@ on:
         options:
           - minimal
           - full
-  push:
-    branches: [master, main, "rc-*"]
-    paths:
-      - '**.rs'
-      - '**/Cargo.toml'
-      - '**/Cargo.lock'
   pull_request:
     branches: [master, main, "rc-*"]
   schedule:

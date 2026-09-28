@@ -9,12 +9,6 @@ on:
   schedule:
     # Run weekly on Saturdays at 4 AM UTC
     - cron: '0 4 * * 6'
-  push:
-    branches: [master, main]
-    paths:
-      - 'docker/**'
-      - 'src/**/nat*.rs'
-      - 'src/**/connection*.rs'
 
 env:
   DOCKER_BUILDKIT: 1

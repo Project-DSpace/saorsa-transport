@@ -1,8 +1,6 @@
 name: Quick Checks
 
 on:
-  push:
-    branches: [master, main, "rc-*"]
   pull_request:
     branches: [master, main, "rc-*"]
   workflow_call:
