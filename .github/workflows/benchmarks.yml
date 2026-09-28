@@ -4,13 +4,6 @@
 name: Benchmarks
 
 on:
-  push:
-    branches: [master, main, "rc-*"]
-    paths:
-      - "src/**"
-      - "Cargo.toml"
-      - "Cargo.lock"
-      - "benches/**"
   pull_request:
     branches: [master, main, "rc-*"]
     paths:
@@ -249,7 +242,7 @@ jobs:
     runs-on: ubuntu-latest
     # Allow this job to fail - benchmark history is optional and may fail on forks
     continue-on-error: true
-    if: github.event_name == 'push' && (github.ref == 'refs/heads/master' || github.ref == 'refs/heads/main')
+    if: github.event_name == 'schedule'
     needs: benchmark
     steps:
       - name: Checkout code

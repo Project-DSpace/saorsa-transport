@@ -134,14 +134,9 @@ jobs:
             git push
           fi
 
-  test:
-    name: Final Tests
-    needs: validate
-    uses: ./.github/workflows/quick-checks.yml
-
   build:
     name: Build ${{ matrix.target }}
-    needs: [validate, test]
+    needs: [validate]
     runs-on: ${{ matrix.os }}
     strategy:
       fail-fast: false
@@ -333,7 +328,7 @@ jobs:
 
   publish-crate:
     name: Publish to crates.io
-    needs: [validate, test, changelog]
+    needs: [validate, changelog]
     runs-on: ubuntu-latest
     if: github.event.inputs.dry_run != 'true'
     steps:

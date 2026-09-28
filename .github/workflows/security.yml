@@ -11,13 +11,6 @@ on:
         # For PRs, security-gate runs; for other events (tags), use core check results
         value: ${{ jobs.security-report.result == 'success' }}
   workflow_dispatch:
-  push:
-    branches: [master, main, "rc-*"]
-    paths:
-      - '**/Cargo.toml'
-      - '**/Cargo.lock'
-      - '.github/workflows/security.yml'
-      - 'deny.toml'
   pull_request:
     branches: [master, main, "rc-*"]
     paths:

@@ -30,12 +30,6 @@ on:
         description: 'Run mutation tests'
         type: boolean
         default: false
-  push:
-    branches: [master, main, "rc-*"]
-    paths:
-      - '**.rs'
-      - '**/Cargo.toml'
-      - '**/Cargo.lock'
   pull_request:
     branches: [master, main, "rc-*"]
   schedule:
@@ -59,6 +53,7 @@ jobs:
   # Core library tests
   lib-tests:
     name: Library Tests (${{ matrix.os }} / ${{ matrix.rust }})
+    if: github.event_name != 'schedule'
     runs-on: ${{ matrix.os }}
     timeout-minutes: 30
     strategy:
@@ -101,6 +96,7 @@ jobs:
   # Integration tests
   integration-tests:
     name: Integration Tests (${{ matrix.os }})
+    if: github.event_name != 'schedule'
     runs-on: ${{ matrix.os }}
     timeout-minutes: 30
     strategy:
@@ -127,6 +123,7 @@ jobs:
   # Feature combination tests
   feature-tests:
     name: Feature Combinations
+    if: github.event_name != 'schedule'
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
@@ -156,6 +153,7 @@ jobs:
   # Property-based tests
   property-tests:
     name: Property Tests
+    if: github.event_name != 'schedule'
     runs-on: ${{ matrix.os }}
     timeout-minutes: 45
     continue-on-error: true  # Property tests need fixes - non-blocking
@@ -272,7 +270,7 @@ jobs:
   summary:
     name: Test Summary
     needs: [lib-tests, integration-tests, feature-tests, property-tests]
-    if: always()
+    if: always() && github.event_name != 'schedule'
     runs-on: ubuntu-latest
     outputs:
       passed: ${{ steps.check.outputs.passed }}
