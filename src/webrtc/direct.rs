@@ -1228,7 +1228,7 @@ impl DirectUdpMux {
             };
             let Ok(generation) =
                 self.next_generation
-                    .fetch_update(Ordering::Relaxed, Ordering::Relaxed, |value| {
+                    .try_update(Ordering::Relaxed, Ordering::Relaxed, |value| {
                         value.checked_add(1)
                     })
             else {

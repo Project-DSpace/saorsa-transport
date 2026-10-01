@@ -1190,7 +1190,7 @@ impl ConnectionRouter {
             match engine {
                 ProtocolEngine::Quic => {
                     self.stats.quic_selections.fetch_add(1, Ordering::Relaxed);
-                    let _ = self.stats.constrained_selections.fetch_update(
+                    let _ = self.stats.constrained_selections.try_update(
                         Ordering::Relaxed,
                         Ordering::Relaxed,
                         |v| Some(v.saturating_sub(1)),
@@ -1200,7 +1200,7 @@ impl ConnectionRouter {
                     self.stats
                         .constrained_selections
                         .fetch_add(1, Ordering::Relaxed);
-                    let _ = self.stats.quic_selections.fetch_update(
+                    let _ = self.stats.quic_selections.try_update(
                         Ordering::Relaxed,
                         Ordering::Relaxed,
                         |v| Some(v.saturating_sub(1)),
