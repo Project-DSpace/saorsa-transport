@@ -18,6 +18,7 @@ categories = ["network-programming", "asynchronous"]
 exclude = [
     ".github/",
     ".githooks/",
+    ".minimax/",
     ".serena/",
     ".codecov.yml",
     ".DS_Store",
