@@ -469,4 +469,4 @@ The reference implementation is available in the saorsa-transport source code:
 
 ---
 
-*Copyright 2024-2025 Saorsa Labs Ltd. Licensed under GPL-3.0.*
+*Copyright 2024-2025 Saorsa Labs Ltd. Licensed under MIT OR Apache-2.0.*
