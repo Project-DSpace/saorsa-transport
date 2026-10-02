@@ -1,9 +1,14 @@
 // Copyright 2024 Saorsa Labs Ltd.
 //
-// This Saorsa Network Software is licensed under the General Public License (GPL), version 3.
-// Please see the file LICENSE-GPL, or visit <http://www.gnu.org/licenses/> for the full text.
+// This software is licensed under the MIT license <LICENSE-MIT or
+// https://opensource.org/licenses/MIT> or the Apache License, Version 2.0
+// <LICENSE-APACHE or https://www.apache.org/licenses/LICENSE-2.0>, at your
+// option. This file may not be copied, modified, or distributed except
+// according to those terms.
 //
-// Full details available at https://saorsalabs.com/licenses
+// Unless required by applicable law or agreed to in writing, software
+// distributed under these licenses is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 
 //! ML-KEM-768 implementation using saorsa-pqc
 
