@@ -1,5 +1,13 @@
 # saorsa-transport
 
+> **This is a mirror** of [WithAutonomi/saorsa-transport](https://github.com/WithAutonomi/saorsa-transport)
+> (MIT OR Apache-2.0), kept so that
+> [darwin-node](https://github.com/Project-DSpace/darwin-node) still builds if
+> upstream's history changes. darwin-node builds against the commit tagged
+> `darwin-node-pin-*`. Development happens upstream. The rest of this README
+> is upstream's, and its badges show upstream's builds. To report a
+> vulnerability, see [SECURITY.md](SECURITY.md).
+
 **Pure Post-Quantum QUIC** transport with NAT traversal for P2P networks. Every node is symmetric - can connect AND accept connections.
 
 [![Documentation](https://docs.rs/saorsa-transport/badge.svg)](https://docs.rs/saorsa-transport/)
